@@ -19,6 +19,19 @@ module.exports = {
   chainWebpack: config => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+  },
+
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:7001', // 代理到的后端服务器地址
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
 }
 
