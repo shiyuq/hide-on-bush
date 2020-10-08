@@ -7,10 +7,19 @@
   </a-carousel>
 </template>
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      name: 'syq'
+    }
+  },
+  async created () {
+    const options = { limit: 10, offset: 0 }
+    await this.$store.dispatch('feedback/getFeedbackList', options)
+  }
+}
 </script>
 <style scoped>
-/* For demo */
 .ant-carousel >>> .slick-slide {
   text-align: center;
   height: 160px;

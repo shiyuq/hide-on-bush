@@ -6,4 +6,6 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
+
+  router.resources('feedback', '/api/v1/feedback', controller.feedback);
 };

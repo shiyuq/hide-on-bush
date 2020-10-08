@@ -8,8 +8,14 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-scripts": "^2.11.0",
-    "egg-validate": "^2.0.2"
+    "egg-sequelize": "^6.0.0",
+    "egg-validate": "^2.0.2",
+    "pg": "^8.4.0",
+    "pg-hstore": "^2.3.3",
+    "qs": "^6.9.4",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "autod": "^3.0.1",
