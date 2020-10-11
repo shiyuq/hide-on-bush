@@ -22,7 +22,7 @@ module.exports = appInfo => {
   };
 
   config.cors = {
-    origin: 'http://127.0.0.1:9000',
+    origin: [ 'http://127.0.0.1:9000' ],
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     credentials: true,
   };
