@@ -1,10 +1,12 @@
 <template>
-  <a-carousel autoplay>
-    <div><h3><img src="../assets/home/banner/banner1.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner2.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner3.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner4.png"></h3></div>
-  </a-carousel>
+  <div>
+    <a-carousel autoplay>
+      <div><h3><img src="../assets/home/banner/banner1.png"></h3></div>
+      <div><h3><img src="../assets/home/banner/banner2.png"></h3></div>
+      <div><h3><img src="../assets/home/banner/banner3.png"></h3></div>
+      <div><h3><img src="../assets/home/banner/banner4.png"></h3></div>
+    </a-carousel>
+  </div>
 </template>
 <script>
 export default {
@@ -21,10 +23,9 @@ export default {
 <style scoped>
 .ant-carousel >>> .slick-slide {
   text-align: center;
-  height: 250px;
-  line-height: 250px;
+  height: 300px;
   overflow: hidden;
-  background-color: grey;
+  position: relative;
 }
 
 .ant-carousel >>> .slick-slide h3 {
@@ -32,8 +33,10 @@ export default {
 }
 
 img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%,-50%);
 }
 </style>
