@@ -63,4 +63,4 @@ export const createInstance = (baseUrl, authenticated) => {
   return instance
 }
 
-export const createAuthInstance = (baseUrl) => createInstance(baseUrl, false)
+export const createAuthInstance = (baseUrl) => createInstance(baseUrl, true)
