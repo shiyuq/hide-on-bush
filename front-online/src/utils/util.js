@@ -3,7 +3,7 @@
  * @param id parent element id or class
  * @param timeout
  */
-export function removeLoadingAnimate (id = '', timeout = 1500) {
+export function removeLoadingAnimate (id = '', timeout = 1000) {
   if (id === '') {
     return
   }
