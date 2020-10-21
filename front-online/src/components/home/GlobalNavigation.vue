@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-affix offset-top="0">
-      <a-menu style="width: 256px" mode="horizontal" @click="handleClick">
+    <a-affix :offset-top="offsetTop">
+      <a-menu class="b-menu-display" mode="horizontal" @click="handleClick">
         <a-menu-item key="1">
           <a-icon type="mail" />
           Navigation One
@@ -51,7 +51,19 @@
 export default {
   data () {
     return {
+      offsetTop: 0
+    }
+  },
+  methods: {
+    handleClick (e) {
+      console.log('e11', e)
     }
   }
 }
 </script>
+
+<style scoped>
+.b-menu-display {
+  border-bottom: 0px;
+}
+</style>

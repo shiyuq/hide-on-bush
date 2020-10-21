@@ -1,7 +1,9 @@
 <template>
   <div>
-    <GlobalNavigation></GlobalNavigation>
-    <HomePictures></HomePictures>
+    <div class="b-global-navigation">
+      <GlobalNavigation></GlobalNavigation>
+    </div>
+    <!-- <HomePictures></HomePictures> -->
   </div>
 </template>
 
@@ -25,5 +27,10 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
+.b-global-navigation {
+  display: flex;
+  // justify-content: center;
+  border-bottom: 1px solid $light-grey;
+}
 </style>
