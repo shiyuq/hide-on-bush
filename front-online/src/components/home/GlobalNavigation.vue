@@ -42,6 +42,10 @@
             Option 10
           </a-menu-item>
         </a-sub-menu>
+        <a-menu-item key="login">
+          <a-icon type="login" />
+          login
+        </a-menu-item>
       </a-menu>
     </a-affix>
   </div>
@@ -56,7 +60,9 @@ export default {
   },
   methods: {
     handleClick (e) {
-      console.log('e11', e)
+      if (e.key === 'login') {
+        this.$router.push('/login')
+      }
     }
   }
 }
