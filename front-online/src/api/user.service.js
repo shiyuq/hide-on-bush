@@ -10,6 +10,6 @@ const login = async ({ email, password }) => {
   })
 }
 
-export const feedbackService = {
+export const userService = {
   login
 }

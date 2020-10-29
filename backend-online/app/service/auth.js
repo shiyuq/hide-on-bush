@@ -7,6 +7,7 @@ class AuthService extends Service {
     const { ctx } = this;
     const { email } = options;
     const userInfo = await ctx.model.User.findOne({ email });
+    console.log('userInfo', userInfo);
 
     return userInfo;
   }
