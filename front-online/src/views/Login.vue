@@ -52,7 +52,7 @@
 
 <script>
 import md5 from 'md5'
-import { authService } from '@/api'
+import { userService } from '@/api'
 
 export default {
   beforeCreate () {
@@ -76,7 +76,7 @@ export default {
     async login (values) {
       this.loginBtn = true
       try {
-        const response = await authService.login(values)
+        const response = await userService.login(values)
         console.log('response', response)
         // const token = response.data.token
         // setToken(token)
