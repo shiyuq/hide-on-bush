@@ -53,15 +53,16 @@
 <script>
 import md5 from 'md5'
 import { userService } from '@/api'
+import { getAllUrlParams, timeFix } from '@/utils/util'
 
 export default {
-  beforeCreate () {
-    this.form = this.$form.createForm(this)
-  },
   data () {
     return {
       loginBtn: false
     }
+  },
+  beforeCreate () {
+    this.form = this.$form.createForm(this)
   },
   methods: {
     handleSubmit (e) {
@@ -76,8 +77,15 @@ export default {
     async login (values) {
       this.loginBtn = true
       try {
-        const response = await userService.login(values)
-        console.log('response', response)
+        const { data } = await userService.login(values)
+        if (data.status === 'error') {
+          this.$notification.error({
+            message: data.msg,
+            description: `${data.msg}，请重新尝试！`
+          })
+          this.loginBtn = false
+          return
+        }
         // const token = response.data.token
         // setToken(token)
         this.loginSuccess()
@@ -87,16 +95,16 @@ export default {
     },
     loginSuccess () {
       this.loginBtn = false
-      // const temp = getAllUrlParams()
+      const temp = getAllUrlParams()
 
-      // if (temp.redirect) {
-      //   const redirect = unescape(temp.redirect)
-      //   console.log(redirect)
-      //   window.location.href = redirect
-      // } else {
-      //   this.$router.push({ path: '/' })
-      // }
-      // this.$message.success(`${timeFix()}，欢迎回来`)
+      if (temp.redirect) {
+        const redirect = unescape(temp.redirect)
+        console.log(redirect)
+        window.location.href = redirect
+      } else {
+        this.$router.push({ path: '/' })
+      }
+      this.$message.success(`${timeFix()}，欢迎回来`)
     },
     requestFailed (err) {
       if (err.message === '未知的网络错误') {
