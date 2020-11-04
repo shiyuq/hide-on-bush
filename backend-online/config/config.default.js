@@ -77,6 +77,10 @@ module.exports = appInfo => {
     tokenExpireTime: 3600 * 24 * 7,
   };
 
+  config.jwt = {
+    secret: 'd827a8eb-b31d-4849-a832-87407a3c78b2', // 自定义 token 的加密条件字符串
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
