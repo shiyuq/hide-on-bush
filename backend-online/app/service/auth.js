@@ -5,8 +5,7 @@ const Service = require('egg').Service;
 
 class AuthService extends Service {
   async login(options) {
-    console.log('options', options);
-    const { ctx } = this;
+    const { ctx, app } = this;
     const { email, password } = options;
     const userInfo = await ctx.model.User.findOne({ where: { email } });
     if (!userInfo) {
@@ -17,7 +16,8 @@ class AuthService extends Service {
       return { status: 'error', msg: '密码输入错误' };
     }
 
-    return _.omit(data, [ 'password' ]);
+    const token = app.jwt.sign(_.pick(data, [ 'id', 'email' ]), app.config.jwt.secret);
+    return { token, status: 'success' };
   }
 }
 

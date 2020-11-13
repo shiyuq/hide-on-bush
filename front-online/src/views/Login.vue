@@ -54,6 +54,7 @@
 import md5 from 'md5'
 import { userService } from '@/api'
 import { getAllUrlParams, timeFix } from '@/utils/util'
+import { setToken } from '@/api/auth'
 
 export default {
   data () {
@@ -86,8 +87,8 @@ export default {
           this.loginBtn = false
           return
         }
-        // const token = response.data.token
-        // setToken(token)
+        const { token } = data
+        setToken(token)
         this.loginSuccess()
       } catch (err) {
         this.requestFailed(err)
