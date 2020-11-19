@@ -16,7 +16,7 @@ class AuthService extends Service {
       return { status: 'error', msg: '密码输入错误' };
     }
 
-    const token = app.jwt.sign(_.pick(data, [ 'id', 'email' ]), app.config.jwt.secret);
+    const token = app.jwt.sign(_.pick(data, [ 'id', 'email' ]), app.config.jwt.secret, { expiresIn: '1h' });
     return { token, status: 'success' };
   }
 }
