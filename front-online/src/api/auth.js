@@ -13,7 +13,7 @@ export const getToken = () => {
 
 export const setToken = (token) => {
   if (cookieDomainName) {
-    Cookies.set(accessToken, token, { path: '/', domain: cookieDomainName })
+    Cookies.set(accessToken, token)
   } else {
     Cookies.set(accessToken, token)
   }

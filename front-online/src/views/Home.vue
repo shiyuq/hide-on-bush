@@ -1,13 +1,22 @@
 <template>
-  <a-carousel autoplay>
-    <div><h3><img src="../assets/home/banner/banner1.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner2.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner3.png"></h3></div>
-    <div><h3><img src="../assets/home/banner/banner4.png"></h3></div>
-  </a-carousel>
+  <div>
+    <div class="b-global-navigation">
+      <GlobalNavigation></GlobalNavigation>
+    </div>
+    <!-- <HomePictures></HomePictures> -->
+  </div>
 </template>
+
 <script>
+import HomePictures from '@/components/home/HomePictures'
+import GlobalNavigation from '@/components/home/GlobalNavigation'
+
 export default {
+  name: 'HomePage',
+  components: {
+    HomePictures,
+    GlobalNavigation
+  },
   data () {
     return {
     }
@@ -18,22 +27,10 @@ export default {
   }
 }
 </script>
-<style scoped>
-.ant-carousel >>> .slick-slide {
-  text-align: center;
-  height: 250px;
-  line-height: 250px;
-  overflow: hidden;
-  background-color: grey;
-}
-
-.ant-carousel >>> .slick-slide h3 {
-  color: #976262;
-}
-
-img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+<style scoped lang="scss">
+.b-global-navigation {
+  display: flex;
+  // justify-content: center;
+  border-bottom: 1px solid $light-grey;
 }
 </style>
