@@ -17,12 +17,12 @@ module.exports = appInfo => {
 
   config.cluster = {
     listen: {
-      port: 7001,
+      port: 5000,
     },
   };
 
   config.cors = {
-    origin: 'http://127.0.0.1:9000',
+    origin: [ 'http://127.0.0.1:9000' ],
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     credentials: true,
   };
@@ -72,6 +72,14 @@ module.exports = appInfo => {
 
   // add your middleware config here
   config.middleware = [];
+
+  config.auth = {
+    tokenExpireTime: 3600 * 24 * 7,
+  };
+
+  config.jwt = {
+    secret: 'd827a8eb-b31d-4849-a832-87407a3c78b2', // 自定义 token 的加密条件字符串
+  };
 
   // add your user config here
   const userConfig = {

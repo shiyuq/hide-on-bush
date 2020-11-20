@@ -1,16 +1,24 @@
 <template>
-  <a-carousel autoplay>
-    <div><h3>1</h3></div>
-    <div><h3>2</h3></div>
-    <div><h3>3</h3></div>
-    <div><h3>4</h3></div>
-  </a-carousel>
+  <div>
+    <div class="b-global-navigation">
+      <GlobalNavigation></GlobalNavigation>
+    </div>
+    <!-- <HomePictures></HomePictures> -->
+  </div>
 </template>
+
 <script>
+import HomePictures from '@/components/home/HomePictures'
+import GlobalNavigation from '@/components/home/GlobalNavigation'
+
 export default {
+  name: 'HomePage',
+  components: {
+    HomePictures,
+    GlobalNavigation
+  },
   data () {
     return {
-      name: 'syq'
     }
   },
   async created () {
@@ -19,16 +27,10 @@ export default {
   }
 }
 </script>
-<style scoped>
-.ant-carousel >>> .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  background: #364d79;
-  overflow: hidden;
-}
-
-.ant-carousel >>> .slick-slide h3 {
-  color: #fff;
+<style scoped lang="scss">
+.b-global-navigation {
+  display: flex;
+  // justify-content: center;
+  border-bottom: 1px solid $light-grey;
 }
 </style>
