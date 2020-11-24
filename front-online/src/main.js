@@ -5,7 +5,7 @@ import store from './store'
 
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css' // or 'ant-design-vue/dist/antd.less'
-import { removeLoadingAnimate } from '@/utils/util'
+// import { removeLoadingAnimate } from '@/utils/util'
 
 Vue.config.productionTip = false
 
@@ -15,7 +15,7 @@ new Vue({
   router,
   store,
   created () {
-    removeLoadingAnimate('preloadingWrapper')
+    // removeLoadingAnimate('preloadingWrapper')
   },
   render: h => h(App)
 }).$mount('#app')
