@@ -10,7 +10,25 @@
         <ul class="header-box-nav__items">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
-            <div class="content-box__company-point"></div>
+            <div class="content-box__company-point">
+              <div class="content-box__each-point">
+                <ul>
+                  <li>
+                    <a href="/about/introduction" class="content-box__each-point-link">集团介绍</a>
+                    <a href="/about/history" class="content-box__each-point-link">公司历程</a>
+                    <a href="/about/leadership" class="content-box__each-point-link">管理团队</a>
+                  </li>
+                  <li>
+                    <a href="/about/join-us" class="content-box__each-point-link">加入我们</a>
+                    <a href="/about/social-responsibility" class="content-box__each-point-link">社会责任</a>
+                    <a href="/about/our-offices" class="content-box__each-point-link">办公地点</a>
+                  </li>
+                  <li>
+                    <a href="/about/integrity-compliance" class="content-box__each-point-link">诚信合规</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li class="header-box-nav__item">
             <a href="/technology">科技创新</a>
@@ -128,16 +146,18 @@ export default {
         margin-top: 0;
         opacity: 1;
         pointer-events: auto;
+        .content-box__company-point {
+          max-height: 200px;
+          margin-top: 0;
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
       &:hover::before {
         bottom: 0;
         opacity: 1;
       }
       .content-box__company-point {
-        max-height: 200px;
-        margin-top: 0;
-        opacity: 1;
-        pointer-events: auto;
         position: absolute;
         top: 100%;
         left: 0;
@@ -173,6 +193,24 @@ export default {
           opacity: inherit;
           transition: all .6s cubic-bezier(.165,.84,.44,1);
           content: "";
+        }
+        .content-box__each-point {
+          display: block;
+          zoom: 1;
+          position: relative;
+          top: 24px;
+          min-width: 38vw;
+          padding-left: 19.5px;
+          white-space: nowrap;
+          ul {
+            float: left;
+            li {
+              position: relative;
+              // margin-right: 63px;
+              line-height: 24px;
+              // opacity: 0;
+            }
+          }
         }
       }
     }
