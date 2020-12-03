@@ -6,7 +6,7 @@
           <img src="@/assets/home/logo/white-logo.png" alt="logo" />
         </div>
       </a>
-      <nav class="header-box-nav" style="margin-left: 76px; flex: 100% 1 1">
+      <nav class="header-box-nav" style="margin-left: 76px;">
         <ul class="header-box-nav__items">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
@@ -25,15 +25,17 @@
                     <a
                       href="/about/history"
                       class="content-box__each-point-link"
-                    >公司历程</a
-                    >
+                    >公司历程
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                   <li>
                     <a
                       href="/about/leadership"
                       class="content-box__each-point-link"
-                    >管理团队</a
-                    >
+                    >管理团队
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                 </ul>
                 <ul>
@@ -41,22 +43,25 @@
                     <a
                       href="/about/join-us"
                       class="content-box__each-point-link"
-                    >加入我们</a
-                    >
+                    >加入我们
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                   <li>
                     <a
                       href="/about/social-responsibility"
                       class="content-box__each-point-link"
-                    >社会责任</a
-                    >
+                    >社会责任
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                   <li>
                     <a
                       href="/about/our-offices"
                       class="content-box__each-point-link"
-                    >办公地点</a
-                    >
+                    >办公地点
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                 </ul>
                 <ul>
@@ -64,8 +69,9 @@
                     <a
                       href="/about/integrity-compliance"
                       class="content-box__each-point-link"
-                    >诚信合规</a
-                    >
+                    >诚信合规
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -88,9 +94,38 @@
           </li>
           <li class="header-box-nav__item">
             <a href="/news-media">新闻及媒体资源</a>
+            <div class="content-box__company-point">
+              <div class="content-box__each-point">
+                <ul>
+                  <li>
+                    <a
+                      href="/news-media/press-releases"
+                      class="content-box__each-point-link"
+                    >新闻中心
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/news-media/media-library"
+                      class="content-box__each-point-link"
+                    >资料库
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
         </ul>
       </nav>
+      <div class="header-box-locale___language">
+        <div class="header-box-locale-text__language">
+          <span class="header-box-locale-text-span___language">{{ languages[activeLanguageIndex].displayName }}
+          </span>
+          <a-icon type="down" />
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -98,7 +133,16 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      activeLanguageIndex: 0,
+      languages: [
+        { id: 0, displayName: '简', fullName: '简体中文' },
+        { id: 1, displayName: '繁', fullName: '繁体中文' },
+        { id: 2, displayName: 'EN', fullName: 'English' },
+        { id: 3, displayName: 'KR', fullName: '한국어' },
+        { id: 4, displayName: 'JP', fullName: '日本語' }
+      ]
+    }
   },
   methods: {}
 }
@@ -163,7 +207,7 @@ export default {
       color: #383735;
       line-height: 60px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: all .3s cubic-bezier(.645,.045,.355,1);
       a {
         color: white;
         font-size: 16px;
@@ -188,6 +232,7 @@ export default {
         opacity: 1;
         pointer-events: auto;
         .content-box__company-point {
+          display: block;
           max-height: 200px;
           margin-top: 0;
           opacity: 1;
@@ -206,13 +251,13 @@ export default {
         position: absolute;
         top: 100%;
         left: 0;
-        display: block;
+        display: none;
         width: 100%;
         height: auto;
         padding: 21px 0 15px;
         opacity: 0;
         transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-        will-change: transform, opacity, height;
+        will-change: transform;
         &::before {
           position: absolute;
           top: 24px;
@@ -251,6 +296,14 @@ export default {
               position: relative;
               margin-right: 63px;
               line-height: 24px;
+              &:hover {
+                a {
+                  color: #1677ff;
+                }
+                .each-point-icon {
+                  visibility: initial;
+                }
+              }
               a {
                 color: #383735;
                 font-weight: 300;
@@ -259,14 +312,6 @@ export default {
                   visibility: hidden;
                   margin-left: 6px;
                   transition: all .3s cubic-bezier(.645,.045,.355,1);
-                }
-              }
-              &:hover {
-                a {
-                  color: #1677ff;
-                }
-                .each-point-icon {
-                  visibility: initial;
                 }
               }
             }
@@ -281,6 +326,33 @@ export default {
           }
         }
       }
+    }
+  }
+  .header-box-locale___language {
+    height: 109px;
+    margin-right: 8px;
+    color: #fff;
+    line-height: 109px;
+    .header-box-locale-text__language {
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .header-box-locale-text-span___language {
+      display: inline-block;
+      font-size: 16px;
+      letter-spacing: 1.2px;
+      vertical-align: middle;
+      // &::after {
+      //   content: '';
+      //   display: block;
+      //   width: 14px;
+      //   height: 1px;
+      //   background: white;
+      //   transform: rotate(-90deg);
+      //   -webkit-transform: rotate(-90deg);
+      // }
     }
   }
 }
