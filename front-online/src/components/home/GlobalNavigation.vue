@@ -14,17 +14,58 @@
               <div class="content-box__each-point">
                 <ul>
                   <li>
-                    <a href="/about/introduction" class="content-box__each-point-link">集团介绍</a>
-                    <a href="/about/history" class="content-box__each-point-link">公司历程</a>
-                    <a href="/about/leadership" class="content-box__each-point-link">管理团队</a>
+                    <a
+                      href="/about/introduction"
+                      class="content-box__each-point-link"
+                    >集团介绍
+                      <a-icon type="right" style="fontSize: 12px; color: #1677ff" class="each-point-icon" />
+                    </a>
                   </li>
                   <li>
-                    <a href="/about/join-us" class="content-box__each-point-link">加入我们</a>
-                    <a href="/about/social-responsibility" class="content-box__each-point-link">社会责任</a>
-                    <a href="/about/our-offices" class="content-box__each-point-link">办公地点</a>
+                    <a
+                      href="/about/history"
+                      class="content-box__each-point-link"
+                    >公司历程</a
+                    >
                   </li>
                   <li>
-                    <a href="/about/integrity-compliance" class="content-box__each-point-link">诚信合规</a>
+                    <a
+                      href="/about/leadership"
+                      class="content-box__each-point-link"
+                    >管理团队</a
+                    >
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a
+                      href="/about/join-us"
+                      class="content-box__each-point-link"
+                    >加入我们</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/about/social-responsibility"
+                      class="content-box__each-point-link"
+                    >社会责任</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/about/our-offices"
+                      class="content-box__each-point-link"
+                    >办公地点</a
+                    >
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a
+                      href="/about/integrity-compliance"
+                      class="content-box__each-point-link"
+                    >诚信合规</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -122,12 +163,12 @@ export default {
       color: #383735;
       line-height: 60px;
       cursor: pointer;
-      transition: all .3s cubic-bezier(.645,.045,.355,1);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       a {
         color: white;
         font-size: 16px;
         letter-spacing: 1.2px;
-        transition: all .3s cubic-bezier(.645,.045,.355,1);
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       &::before {
         position: absolute;
@@ -138,7 +179,7 @@ export default {
         background-color: #1677ff;
         transform: translate(-50%);
         opacity: 0;
-        transition: all .6s cubic-bezier(.165,.84,.44,1);
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         content: "";
       }
       &:hover {
@@ -151,6 +192,10 @@ export default {
           margin-top: 0;
           opacity: 1;
           pointer-events: auto;
+          li {
+            margin-top: 0;
+            opacity: 1;
+          }
         }
       }
       &:hover::before {
@@ -164,19 +209,17 @@ export default {
         display: block;
         width: 100%;
         height: auto;
-        max-height: 0;
         padding: 21px 0 15px;
         opacity: 0;
-        transition: all .6s cubic-bezier(.165,.84,.44,1);
-        pointer-events: none;
-        will-change: transform,opacity,height;
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        will-change: transform, opacity, height;
         &::before {
           position: absolute;
           top: 24px;
           left: -100vw;
           width: 300vw;
           height: 100%;
-          background: hsla(0,0%,95.3%,.95);
+          background: hsla(0, 0%, 95.3%, 0.95);
           content: "";
         }
         &::after {
@@ -187,11 +230,11 @@ export default {
           width: 0;
           height: 0;
           border-right: 7.5px solid transparent;
-          border-bottom: 9px solid hsla(0,0%,95.3%,.95);
+          border-bottom: 9px solid hsla(0, 0%, 95.3%, 0.95);
           border-left: 7.5px solid transparent;
           transform: translateX(-50%);
           opacity: inherit;
-          transition: all .6s cubic-bezier(.165,.84,.44,1);
+          transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
           content: "";
         }
         .content-box__each-point {
@@ -206,10 +249,35 @@ export default {
             float: left;
             li {
               position: relative;
-              // margin-right: 63px;
+              margin-right: 63px;
               line-height: 24px;
-              // opacity: 0;
+              a {
+                color: #383735;
+                font-weight: 300;
+                font-size: 15px;
+                .each-point-icon {
+                  visibility: hidden;
+                  margin-left: 6px;
+                  transition: all .3s cubic-bezier(.645,.045,.355,1);
+                }
+              }
+              &:hover {
+                a {
+                  color: #1677ff;
+                }
+                .each-point-icon {
+                  visibility: initial;
+                }
+              }
             }
+          }
+          &::after {
+            display: block;
+            clear: both;
+            height: 0;
+            font-size: 0;
+            visibility: hidden;
+            content: " ";
           }
         }
       }
