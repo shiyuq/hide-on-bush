@@ -6,7 +6,7 @@
           <img src="@/assets/home/logo/white-logo.png" alt="logo" />
         </div>
       </a>
-      <nav class="header-box-nav" style="margin-left: 76px;">
+      <nav class="header-box-nav" style="margin: 0 76px;">
         <ul class="header-box-nav__items">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
@@ -122,8 +122,16 @@
       <div class="header-box-locale___language">
         <div class="header-box-locale-text__language">
           <span class="header-box-locale-text-span___language">{{ languages[activeLanguageIndex].displayName }}
+            <a-icon type="down" style="margin-left: 10px;"/>
           </span>
-          <a-icon type="down" />
+          <div class="locale-overlay__language">
+            <ul>
+              <li v-for="language in languages" :key="language.id">
+                <a href="/" v-if="language.id === activeLanguageIndex" style="color: #1677ff">{{ language.fullName }}</a>
+                <a href="/" v-else>{{ language.fullName }}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -344,15 +352,54 @@ export default {
       font-size: 16px;
       letter-spacing: 1.2px;
       vertical-align: middle;
-      // &::after {
-      //   content: '';
-      //   display: block;
-      //   width: 14px;
-      //   height: 1px;
-      //   background: white;
-      //   transform: rotate(-90deg);
-      //   -webkit-transform: rotate(-90deg);
-      // }
+    }
+    .locale-overlay__language {
+      position: relative;
+      top: -20px;
+      max-height: 0;
+      opacity: 0;
+      transition: all .45s cubic-bezier(.165,.84,.44,1);
+      pointer-events: none;
+      ul {
+        width: 124px;
+        padding: 16px 18px;
+        text-align: left;
+        background: hsla(0,0%,95.3%,.95);
+        li {
+          margin: 8px 0;
+          line-height: 19px;
+          a {
+            color: #383735;
+            font-size: 13px;
+            line-height: 19px;
+            letter-spacing: .97px;
+            white-space: nowrap;
+            &:hover {
+              color: #01a1eb;
+            }
+          }
+        }
+      }
+      &::after {
+        position: absolute;
+        top: -7.5px;
+        left: 50%;
+        z-index: 0;
+        width: 0;
+        height: 0;
+        border-right: 7.5px solid transparent;
+        border-bottom: 9px solid hsla(0,0%,95.3%,.95);
+        border-left: 7.5px solid transparent;
+        transform: translateX(-50%);
+        opacity: inherit;
+        content: "";
+      }
+    }
+    &:hover {
+      .locale-overlay__language {
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
   }
 }
