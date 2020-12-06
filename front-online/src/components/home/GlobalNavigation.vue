@@ -1,13 +1,14 @@
 <template>
-  <header class="header-home">
+  <header class="header-home" :class="[{'header-active__nav': !isTop}]">
     <div class="header-box__nav">
       <a class="header-box-logo__link" href="/">
         <div class="header-box-logo__picture">
-          <img src="@/assets/home/logo/white-logo.png" alt="logo" />
+          <img v-if="isTop" src="@/assets/home/logo/white-logo.png" alt="logo" />
+          <img v-else src="@/assets/home/logo/black-logo.png" alt="logo" />
         </div>
       </a>
-      <nav class="header-box-nav" style="margin: 0 76px;">
-        <ul class="header-box-nav__items">
+      <nav class="header-box-nav" style="margin-left: 76px;">
+        <ul class="header-box-nav__items" :class="[{'header-active__nav-items': !isTop}]">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
             <div class="content-box__company-point">
@@ -121,7 +122,11 @@
       </nav>
       <div class="header-box-locale___language">
         <div class="header-box-locale-text__language">
-          <span class="header-box-locale-text-span___language">{{ languages[activeLanguageIndex].displayName }}
+          <span
+            class="header-box-locale-text-span___language"
+            :class="[{'header-active__locale': !isTop}]"
+          >
+            {{ languages[activeLanguageIndex].displayName }}
             <a-icon type="down" style="margin-left: 10px;"/>
           </span>
           <div class="locale-overlay__language">
@@ -134,6 +139,11 @@
           </div>
         </div>
       </div>
+      <div class="header-box-ipv6">
+        <div class="ipv6_support">
+          <img src="@/assets/ipv6-blue.png" alt="">
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -142,6 +152,7 @@
 export default {
   data () {
     return {
+      isTop: true,
       activeLanguageIndex: 0,
       languages: [
         { id: 0, displayName: '简', fullName: '简体中文' },
@@ -152,13 +163,19 @@ export default {
       ]
     }
   },
-  methods: {}
+  methods: {},
+  mounted () {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      this.isTop = !scrollTop
+    }, true)
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .header-home {
-  background-color: gray;
+  background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
@@ -211,7 +228,7 @@ export default {
       height: 60px;
       margin-top: 24px;
       margin-bottom: 24px;
-      padding: 0 13px;
+      padding: 0 6px;
       color: #383735;
       line-height: 60px;
       cursor: pointer;
@@ -336,6 +353,13 @@ export default {
       }
     }
   }
+  .header-active__nav-items {
+    .header-box-nav__item {
+      a {
+        color: #383735;
+      }
+    }
+  }
   .header-box-locale___language {
     height: 109px;
     margin-right: 8px;
@@ -344,19 +368,23 @@ export default {
     .header-box-locale-text__language {
       display: inline-block;
       text-align: center;
-      vertical-align: middle;
       cursor: pointer;
+      height: 100%;
     }
     .header-box-locale-text-span___language {
       display: inline-block;
       font-size: 16px;
       letter-spacing: 1.2px;
       vertical-align: middle;
+      margin-top: -5px;
+    }
+    .header-active__locale {
+      color: #383735;
     }
     .locale-overlay__language {
       position: relative;
-      top: -20px;
       max-height: 0;
+      margin-top: -20px;
       opacity: 0;
       transition: all .45s cubic-bezier(.165,.84,.44,1);
       pointer-events: none;
@@ -402,5 +430,25 @@ export default {
       }
     }
   }
+  .header-box-ipv6 {
+    display: flex;
+    flex: auto 1 1;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 109px;
+    .ipv6_support {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: unset;
+        height: 26px;
+      }
+    }
+  }
+}
+.header-active__nav {
+  background-color: #fff;
 }
 </style>

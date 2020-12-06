@@ -1,22 +1,22 @@
 <template>
   <div>
-    <div>
-      <GlobalNavigation></GlobalNavigation>
-    </div>
+    <GlobalNavigation></GlobalNavigation>
+    <GlobalVideo></GlobalVideo>
   </div>
 </template>
 
 <script>
 import GlobalNavigation from '@/components/home/GlobalNavigation'
+import GlobalVideo from '@/components/home/GlobalVideo'
 
 export default {
   name: 'HomePage',
   components: {
-    GlobalNavigation
+    GlobalNavigation,
+    GlobalVideo
   },
   data () {
-    return {
-    }
+    return {}
   },
   created () {
   }
