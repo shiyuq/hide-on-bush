@@ -26,7 +26,7 @@
   transform: translate(0px, 0px);
   background-size: cover;
   .bg-video {
-    object-fit: fill;
+    object-fit: cover;
     display: block;
     position: relative;
     width: 100%;

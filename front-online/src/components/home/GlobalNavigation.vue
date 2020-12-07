@@ -7,7 +7,7 @@
           <img v-else src="@/assets/home/logo/black-logo.png" alt="logo" />
         </div>
       </a>
-      <nav class="header-box-nav" style="margin-left: 76px;">
+      <nav class="header-box-nav" style="margin-left: 76px; flex: 100% 1 1;">
         <ul class="header-box-nav__items" :class="[{'header-active__nav-items': !isTop}]">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
@@ -183,7 +183,7 @@ export default {
   width: 100%;
   height: 109px;
   overflow: visible;
-  transition: all 3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   will-change: transform;
   .header-box__nav {
     display: flex;
@@ -228,7 +228,7 @@ export default {
       height: 60px;
       margin-top: 24px;
       margin-bottom: 24px;
-      padding: 0 6px;
+      padding: 0 12px;
       color: #383735;
       line-height: 60px;
       cursor: pointer;
@@ -376,7 +376,6 @@ export default {
       font-size: 16px;
       letter-spacing: 1.2px;
       vertical-align: middle;
-      margin-top: -5px;
     }
     .header-active__locale {
       color: #383735;
