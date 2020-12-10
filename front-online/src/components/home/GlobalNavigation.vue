@@ -127,8 +127,8 @@
             :class="[{'header-active__locale': !isTop}]"
           >
             {{ languages[activeLanguageIndex].displayName }}
-            <a-icon type="down" style="margin-left: 10px;"/>
           </span>
+          <!-- <span class="arrow-down"></span> -->
           <div class="locale-overlay__language">
             <ul>
               <li v-for="language in languages" :key="language.id">
@@ -372,10 +372,21 @@ export default {
       height: 100%;
     }
     .header-box-locale-text-span___language {
-      display: inline-block;
+      position: relative;
       font-size: 16px;
       letter-spacing: 1.2px;
       vertical-align: middle;
+      &::after {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: solid #1677ff;
+        border-width: 0 0 2px 2px;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        position: absolute;
+        left: 200%;
+        top: 30%;
+      }
     }
     .header-active__locale {
       color: #383735;
