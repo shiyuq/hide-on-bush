@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 const path = require('path')
 
 module.exports = {
@@ -19,6 +20,8 @@ module.exports = {
   chainWebpack: config => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+
+    config.resolve.alias.set('@', resolve('src'))
   },
 
   devServer: {
