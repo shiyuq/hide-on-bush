@@ -104,7 +104,7 @@ export default {
   }
   .right {
     background-image: url('../../assets/home/banner/banner-image1.jpg');
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 50%;
     height: 600px;

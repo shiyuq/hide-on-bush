@@ -10,7 +10,8 @@
       </div>
       <div class="header-report__items">
         <div class="header-report__item" v-for="news in newsList" :key="news.id">
-          <img :src="news.imgUrl" alt="">
+          <div :style="'background-image: url(' + news.imgUrl + ')'" class="report-image"></div>
+          <!-- <img :src="news.imgUrl" alt=""> -->
         </div>
       </div>
     </div>
@@ -27,19 +28,19 @@ export default {
       newsList: [
         {
           id: 0,
-          imgUrl: '../../assets/home/report/report1.jpg',
+          imgUrl: require('@/assets/home/report/report1.jpg'),
           date: moment().add(-2, 'day').format('YYYY年MM月DD日'),
           title: '香港蚂蚁银行正式营业'
         },
         {
           id: 1,
-          imgUrl: '../../assets/home/report/report2.jpg',
+          imgUrl: require('@/assets/home/report/report2.jpg'),
           date: moment().add(-1, 'day').format('YYYY年MM月DD日'),
           title: '科技赋能 蚂蚁集团“外滩大会”助力更普惠的未来'
         },
         {
           id: 2,
-          imgUrl: '../../assets/home/report/report3.jpg',
+          imgUrl: require('@/assets/home/report/report3.jpg'),
           date: moment().format('YYYY年MM月DD日'),
           title: '蚂蚁链全新发布 将致力于构建全球最大的价值网络社会责任'
         }
@@ -52,17 +53,18 @@ export default {
 
 <style scoped lang="scss">
 .header-report {
-  background-color: pink;
-  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   height: 200px;
+  margin-bottom: 200px;
   .header-report__container {
-    margin: 0 100px;
     height: 200px;
     background-color: green;
     .report-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: 0 10px;
       h1 {
         position: relative;
         margin-top: 0;
@@ -134,8 +136,14 @@ export default {
       flex-flow: row wrap;
       .header-report__item {
         width: 33.333%;
-        .img {
-          height: 120px;
+        padding: 10px;
+        cursor: pointer;
+        .report-image {
+          height: 188px;
+          width: 100%;
+          background-size: 100%;
+          background-position: 50%;
+          background-repeat: no-repeat;
         }
       }
     }
