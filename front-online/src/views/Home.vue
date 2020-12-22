@@ -14,6 +14,9 @@
     <section class="report">
       <GlobalReport></GlobalReport>
     </section>
+    <section class="socialResponsibility">
+      <GlobalSocialResponsibility></GlobalSocialResponsibility>
+    </section>
   </div>
 </template>
 
@@ -24,6 +27,7 @@ import GlobalContent from '@/components/home/GlobalContent'
 import GlobalBannerOne from '@/components/home/GlobalBannerOne'
 import GlobalBannerTwo from '@/components/home/GlobalBannerTwo'
 import GlobalReport from '@/components/home/GlobalReport'
+import GlobalSocialResponsibility from '@/components/home/GlobalSocialResponsibility'
 
 export default {
   name: 'HomePage',
@@ -33,7 +37,8 @@ export default {
     GlobalContent,
     GlobalBannerOne,
     GlobalBannerTwo,
-    GlobalReport
+    GlobalReport,
+    GlobalSocialResponsibility
   },
   data () {
     return {}

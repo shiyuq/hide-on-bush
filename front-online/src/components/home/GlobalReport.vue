@@ -11,7 +11,8 @@
       <div class="header-report__items">
         <div class="header-report__item" v-for="news in newsList" :key="news.id">
           <div :style="'background-image: url(' + news.imgUrl + ')'" class="report-image"></div>
-          <!-- <img :src="news.imgUrl" alt=""> -->
+          <p>{{ news.date }}</p>
+          <div class="item-desc">{{ news.title }}</div>
         </div>
       </div>
     </div>
@@ -59,7 +60,6 @@ export default {
   margin-bottom: 200px;
   .header-report__container {
     height: 200px;
-    background-color: green;
     .report-header {
       display: flex;
       justify-content: space-between;
@@ -88,6 +88,7 @@ export default {
         display: flex;
         flex-flow: rows nowrap;
         align-items: center;
+        cursor: pointer;
         .more-text {
           position: relative;
           display: inline-block;
@@ -138,12 +139,38 @@ export default {
         width: 33.333%;
         padding: 10px;
         cursor: pointer;
+        position: relative;
         .report-image {
           height: 188px;
           width: 100%;
           background-size: 100%;
           background-position: 50%;
           background-repeat: no-repeat;
+          margin-bottom: 16px;
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: hsla(0,0%,100%,.2);
+            opacity: 0;
+            transition: all .45s cubic-bezier(.165,.84,.44,1);
+            content: "";
+            pointer-events: none;
+          }
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+        p {
+          color: #1677ff;
+          font-size: 14px;
+          line-height: 35px;
+        }
+        .item-desc {
+          color: #383735;
+          font-weight: 400;
         }
       }
     }
