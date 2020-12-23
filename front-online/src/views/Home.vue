@@ -17,6 +17,9 @@
     <section class="socialResponsibility">
       <GlobalSocialResponsibility></GlobalSocialResponsibility>
     </section>
+    <footer>
+      <GlobalFooter></GlobalFooter>
+    </footer>
   </div>
 </template>
 
@@ -28,6 +31,7 @@ import GlobalBannerOne from '@/components/home/GlobalBannerOne'
 import GlobalBannerTwo from '@/components/home/GlobalBannerTwo'
 import GlobalReport from '@/components/home/GlobalReport'
 import GlobalSocialResponsibility from '@/components/home/GlobalSocialResponsibility'
+import GlobalFooter from '@/components/home/GlobalFooter'
 
 export default {
   name: 'HomePage',
@@ -38,7 +42,8 @@ export default {
     GlobalBannerOne,
     GlobalBannerTwo,
     GlobalReport,
-    GlobalSocialResponsibility
+    GlobalSocialResponsibility,
+    GlobalFooter
   },
   data () {
     return {}
