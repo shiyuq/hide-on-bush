@@ -177,7 +177,7 @@ export default {
 .header-home {
   background-color: transparent;
   position: fixed;
-  top: 0;
+  top: -14px;
   left: 0;
   z-index: 999;
   width: 100%;
