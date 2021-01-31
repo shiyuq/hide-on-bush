@@ -8,6 +8,13 @@ import 'ant-design-vue/dist/antd.css' // or 'ant-design-vue/dist/antd.less'
 import 'normalize.css/normalize.css'
 import '@/styles/basic.scss'
 // import { removeLoadingAnimate } from '@/utils/util'
+import fontawesome from '@fortawesome/fontawesome'
+import solid from '@fortawesome/fontawesome-free-solid'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+fontawesome.library.add(solid)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
