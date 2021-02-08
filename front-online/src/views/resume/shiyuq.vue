@@ -90,6 +90,8 @@
             <i class="fa fa-shopping-bag"></i>
             <span class="head-name">工作经历</span>
           </div>
+
+          <!-- 担路网 -->
           <div class="header">
             <ul>
               <li>
@@ -113,6 +115,31 @@
                   <li>赤坎垃圾分类：主要实现的功能是垃圾识别，调取的是京东和百度的识别接口来识别垃圾。主要包括文字识别，图像识别和语音识别。</li>
                   <li><a href="https://www.lanka66.com/">蓝桂汽车</a>：主要是一个汽车行业的在线视频学习网站，主要功能是有偿问答，在线视频观看，会员制度，资料下载等</li>
                   <li><a href="http://www.haoyundaipai.com/">好运代拍</a>：主要是沪牌的代拍平台，主要功能是代拍的套餐购买以及拼团，在线案例和咨询等功能</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 美能华智能科技 -->
+          <div class="header">
+            <ul>
+              <li>
+                <span>苏州美能华智能科技有限公司 - 前端开发工程师</span>
+                <span>2020.08 - 2021.02</span>
+              </li>
+            </ul>
+          </div>
+          <div class="user-content">
+            <ul>
+              <li>该公司是一家刚起步的创业型公司，主打项目是人工智能，有着业内较为领先的OCR技术，且在信息提取、政府审批、智能对话等领域都有涉及。</li>
+              <li>工作内容：主要负责智能对话的后端服务和前端图表方面的工作以及政府的审批的申请人UI端和后端服务。</li>
+              <li>工作流程：从一开始的项目需求创建数据库到后端api支持以及前端的部分功能展示。</li>
+              <li>使用技术：前端使用vue.js框架，后端使用的是eggjs，工作中也会用到docker、redis、websocket等其他技术。</li>
+              <li>解决方案：首先遇到问题的时候会先自己尝试解决，如果在性能或者设计方面会有自己觉得不合理的地方，会给技术小组的leader提供 2 种及以上自己的见解，然后商讨出最终的解决方案。</li>
+              <li>代表项目：
+                <ul class="inner-project">
+                  <li>智能客服对话系统：目前是 PWC 在用，内部使用。主要负责redis缓存会话的相关数据以及websocket实现转人工等功能。</li>
+                  <li><a href="http://szks.jszwfw.gov.cn/">昆山政务服务</a>：智能审批，主要负责审批流程的实现以及前端UI的实现。</li>
                 </ul>
               </li>
             </ul>
@@ -262,21 +289,17 @@ export default {}
                 progress {
                     background-color: #1abc9c;
                     color: #e0eaf0;
-                }
-                progress {
-                    // border-radius: 1px;
-                    // border-left: 1px #ccc solid;
-                    // border-right: 1px #ccc solid;
-                    // border-top: 1px #aaa solid;
-                    background-color: #e0eaf0;
+                    margin-right: 15px;
                 }
 
                 progress::-webkit-progress-bar {
                     background-color: #e0eaf0;
+                    margin-right: 15px;
                 }
 
                 progress::-webkit-progress-value {
                     background-color: #1abc9c;
+                    margin-right: 15px;
                 }
             }
             .phone-green {
