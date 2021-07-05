@@ -1,14 +1,14 @@
 <template>
-  <header class="header-home" :class="[{'header-active__nav': !isTop}]">
+  <header class="header-home" :class="[{'header-active__nav': !isTop || showTitle}]">
     <div class="header-box__nav">
       <a class="header-box-logo__link" href="/">
         <div class="header-box-logo__picture">
-          <img v-if="isTop" src="@/assets/home/logo/white-logo.png" alt="logo" />
+          <img v-if="isTop && !showTitle" src="@/assets/home/logo/white-logo.png" alt="logo" />
           <img v-else src="@/assets/home/logo/black-logo.png" alt="logo" />
         </div>
       </a>
       <nav class="header-box-nav" style="margin-left: 76px; flex: 100% 1 1;">
-        <ul class="header-box-nav__items" :class="[{'header-active__nav-items': !isTop}]">
+        <ul class="header-box-nav__items" :class="[{'header-active__nav-items': !isTop || showTitle}]">
           <li class="header-box-nav__item">
             <a href="/about">关于我们</a>
             <div class="content-box__company-point">
@@ -124,7 +124,7 @@
         <div class="header-box-locale-text__language">
           <span
             class="header-box-locale-text-span___language"
-            :class="[{'header-active__locale': !isTop}]"
+            :class="[{'header-active__locale': !isTop || showTitle}]"
           >
             {{ languages[activeLanguageIndex].displayName }}
           </span>
@@ -150,6 +150,13 @@
 
 <script>
 export default {
+  props: {
+    showTitle: {
+      type: Boolean,
+      requires: false,
+      default: true
+    }
+  },
   data () {
     return {
       isTop: true,

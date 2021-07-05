@@ -1,7 +1,9 @@
 <template>
   <div>
     <header>
-      <GlobalNavigation></GlobalNavigation>
+      <GlobalNavigation
+        :showTitle="false"
+      ></GlobalNavigation>
       <GlobalVideo></GlobalVideo>
     </header>
     <section class="content">

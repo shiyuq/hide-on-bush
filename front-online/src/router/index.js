@@ -13,20 +13,14 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // 你输入的路由在这里会有对应的加载的 vue 文件，这里表示你网址里面输入 /about，加载 about.vue 文件
-    // 你要测试的话这样写
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/aboutUs',
-    name: 'AboutUs',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/navigationPages/AboutUs.vue')
+    component: () => import('../views/navigationPages/AboutUs.vue'),
+    children: [
+      {
+        path: 'introduction',
+        name: 'AboutIntroduction',
+        component: () => import('../views/navigationPages/Global.vue')
+      }
+    ]
   },
   {
     path: '/technologyInnovation',
