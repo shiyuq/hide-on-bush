@@ -126,14 +126,14 @@
 <script>
 import GlobalNavigation from '@/components/home/GlobalNavigation'
 export default {
+  components: {
+    GlobalNavigation
+  },
   data () {
     return {
     }
   },
   methods: {
-  },
-  components: {
-    GlobalNavigation
   }
 }
 </script>
