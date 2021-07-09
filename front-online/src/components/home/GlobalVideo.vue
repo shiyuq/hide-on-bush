@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="banner-text-inner-bg___logo">
-      <video class="bg-video" crossorigin="anonymous" loop autoplay>
-        <source src="@/assets/home/logo/logo.mp4" type="video/mp4">
-      </video>
+      <video src="https://shiyuq.oss-cn-shanghai.aliyuncs.com/hide-on-bush/logo.mp4" loop autoplay></video>
     </div>
     <div class="banner-text-content">
       <div class="banner-text-wrapper">
